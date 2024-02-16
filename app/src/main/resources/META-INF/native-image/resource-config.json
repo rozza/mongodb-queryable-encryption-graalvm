@@ -33,10 +33,22 @@
         "pattern": "\\Qcom/sun/jna/darwin-x86-64/libjnidispatch.jnilib\\E"
       },
       {
-      "pattern":"\\Qdarwin-aarch64/libmongocrypt.dylib\\E"
+        "pattern": "\\Qdarwin/libmongocrypt.dylib\\E"
       },
       {
-        "pattern": "\\Qdarwin/libmongocrypt.dylib\\E"
+        "pattern": "\\Qlinux-aarch64/libmongocrypt.so\\E"
+      },
+      {
+        "pattern": "\\Qlinux-ppc64le/libmongocrypt.so\\E"
+      },
+      {
+        "pattern": "\\Qlinux-s390x/libmongocrypt.so\\E"
+      },
+      {
+        "pattern": "\\Qlinux-x86-64/libmongocrypt.so\\E"
+      },
+      {
+        "pattern": "\\Qwin32-x86-64/mongocrypt.dll\\E"
       }
     ]
   }

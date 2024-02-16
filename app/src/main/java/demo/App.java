@@ -29,6 +29,7 @@ public class App {
         System.out.println("============================");
         System.out.println("         STARTING");
         System.out.println("============================");
+        System.out.println("\n");
 
         // This would have to be the same master key as was used to create the encryption key
         byte[] localMasterKey = new byte[96];
@@ -90,15 +91,25 @@ public class App {
             MongoCollection<Document> collection = mongoClient.getDatabase("test").getCollection("coll");
             collection.drop(); // Clear old data
 
-            collection.insertOne(new Document("encryptedField", "123456789"));
+            System.out.println("  > Inserting some data:");
+            System.out.println(collection.insertOne(new Document("encryptedField", "123456789")));
 
+            System.out.println("  > Finding the data:");
             System.out.println(collection.find().first().toJson());
+        }
 
+        try (MongoClient mongoClientNoEncryption = MongoClients.create()) {
+            MongoCollection<Document> encryptedCollection = mongoClientNoEncryption.getDatabase("test")
+                    .getCollection("coll");
+
+            System.out.println("\n  > Finding the data: without mongo-crypt: \n");
+            System.out.println(encryptedCollection.find().first().toJson());
         }
 
         System.out.println("============================");
         System.out.println("         fin.");
         System.out.println("============================");
+        System.out.println("\n");
 
     }
 }

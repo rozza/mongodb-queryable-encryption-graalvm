@@ -22,6 +22,9 @@ dependencies {
     // This dependency is used by the application.
     implementation("org.mongodb:mongodb-driver-sync:4.11.1")
     implementation("org.mongodb:mongodb-crypt:1.8.0")
+
+    // Make slf4j quiet
+    implementation("org.slf4j:slf4j-nop:1.7.36")
 }
 
 testing {
